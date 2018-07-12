@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-    class SweepstakesStackManager
+   public class SweepstakesQueueManager : ISweepstakesManager
     {
+        // queue data structure inherit from imanager interface and implement the methods
+
+
     }
 }

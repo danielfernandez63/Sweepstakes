@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-    class SweepstakesStackManager
+  public  class SweepstakesStackManager : ISweepstakesManager
     {
+        // stack data structure inherit from imanager interface and implement the methods
+
     }
 }
