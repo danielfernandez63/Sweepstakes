@@ -24,9 +24,5 @@ namespace Sweepstakes
             return SweepstakesQueue.Pop();
         }
 
-
-
-
-
     }
 }

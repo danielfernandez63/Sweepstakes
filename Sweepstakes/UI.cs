@@ -6,37 +6,39 @@ using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-    public class UI
+    public static class UI
     {
 
-        public string GetFirstName()
+        public static string GetFirstName()
         {
             Console.WriteLine("What is your first name?");
             return Console.ReadLine();
         }
 
-        public string GetLastName()
+        public static string GetLastName()
         {
             Console.WriteLine("What is your last name?");
             return Console.ReadLine();
         }
-        public string GetFullName()
+        public static string GetFullName()
         {
             string name = GetFirstName() + GetLastName();
             return name;
         }
 
-        public string GetEmailAddress()
+        public static string GetEmailAddress()
         {
             Console.WriteLine("What is your current email address?");
             return Console.ReadLine();
         }
 
-        public string GetEmailAdress()
+        public static string GetEmailAdress()
         {
             Console.WriteLine("What is dyour current email adress?");
             return Console.ReadLine();
         }
+
+
 
         //method to ask and return how they want to "search' through contestants stack or queue. first in first our etc etc... probably static interface 'set'
 

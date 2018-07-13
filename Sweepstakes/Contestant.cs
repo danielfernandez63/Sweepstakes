@@ -22,11 +22,12 @@ namespace Sweepstakes
             {
                 registrationNumber = value;
             }
-
         }
 
         public Contestant()
         {
+            UI.GetFirstName();
+            UI.GetLastName();
             name = UI.GetFullName();
             emailAddress = UI.GetEmailAddress();
             this.registrationNumber = RegistrationNumber;

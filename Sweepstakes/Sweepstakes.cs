@@ -11,52 +11,59 @@ namespace Sweepstakes
         //dictionary data structure 
 
         public string name;
-        public int contestant = 0;
+        public int contestants = 0;
+        public Dictionary<int, Contestant> contestantNumber;
+        public int winnerKey;
+        Random rnd = new Random();
 
         Sweepstakes(string name)
         {
+            contestantNumber = new Dictionary<int, Contestant>();
+           
+            this.name = name;
+        }
 
-
-
-
+    	public void RegisterContestant(Contestant contestant)
+        {          
+            contestantNumber.Add(contestants, contestant);
+            contestants++;
         }
 
 
-    	void RegisterContestant(Contestant contestant)
+        public Contestant PickWinner()
         {
-            //add the contestentants into a list so you can pick through those
+            int winningNumber = rnd.Next(0, contestants);
+            foreach (KeyValuePair<int, Contestant> contestant in contestantNumber)
+            {
+                if (contestant.Key == winningNumber)
+                {
+                    winnerKey = winningNumber;
+                    return contestant.Value;
+                }
 
+            }
 
-
-
-
-        }
-
-
-        string PickWinner()
-        {
-            //looping through the array with a winning key being the decided winner by "spot" return winner from array of contestants
-
-            return "hi";  //te,p
-
-
+            return null;
         }
         
-
-	    void PrintContestantInfo(Contestant contestant)
+	    public void PrintContestantInfo(Contestant contestant)
         {
-
-            //display the pick winner
-
-
+            Console.WriteLine("Without further ado! The winner has been selected and will be revealed");
+            Console.WriteLine("");
+            Console.WriteLine("The winner is....");
+            Console.WriteLine("DDDDDDDRRRRRRRRRUUUUUMMMMMMRRRRRRROOOOOOLLLLLLL!!!!!");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Name: " + contestant.name);
+            Console.WriteLine("");
+            Console.WriteLine("Email Address: " + contestant.emailAddress);
+            Console.WriteLine("");
+            Console.WriteLine("Registration Number: " + contestant.RegistrationNumber);
+            Console.WriteLine("");
+            Console.WriteLine("If you are the winner, please bring identifcation and original reciept with reference number to the service desk to receive details on claiming your prize. If you did not win please try again " +
+                "in future contests.");
 
         }
-
-
-
-
-
-
 
 
     }
