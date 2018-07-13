@@ -9,6 +9,7 @@ namespace Sweepstakes
     public  class Sweepstakes
     {
         //dictionary data structure 
+
         public string name;
         public int contestant = 0;
 

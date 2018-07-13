@@ -6,10 +6,25 @@ using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-   public class SweepstakesQueueManager : ISweepstakesManager
+    public class SweepstakesQueueManager : ISweepstakesManager
     {
-        // queue data structure inherit from imanager interface and implement the methods
+       
+        Queue<Sweepstakes> SweeepstakesQueue;
 
+        public SweepstakesQueueManager()
+        {
+            SweeepstakesQueue = new Queue<Sweepstakes>();
+        }
+
+        public void InsertSweepstakes(Sweepstakes sweepstakes)
+        {
+            SweeepstakesQueue.Enqueue(sweepstakes);
+        }
+
+        public Sweepstakes GetSweepstakes()
+            {
+            return SweeepstakesQueue.Dequeue();
+            }
 
     }
 }
