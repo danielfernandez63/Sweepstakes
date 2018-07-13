@@ -38,10 +38,35 @@ namespace Sweepstakes
             return Console.ReadLine();
         }
 
+        public static ISweepstakesManager GetMarketingFirmStylePreference()
+        {
+            Console.WriteLine("Thank you for starting the Sweepstakes Application!Follow instructions as they appear");
+            Console.WriteLine("");
+            Console.WriteLine("Would you like the system to be set up in a stack or queue style? Please select 'stack' or 'queue'.");
+            string style = Console.ReadLine().ToString().Trim();
+
+            if (style == "stack")
+            {
+                SweepstakesStackManager stackStyle = new SweepstakesStackManager();
+                return stackStyle;
+            }
+            else if (style == "queue")
+            {
+                SweepstakesQueueManager queueStyle = new SweepstakesQueueManager();
+                return queueStyle;
+            }
+            else
+            {
+                Console.WriteLine("Please follow directions and enter a valid input");
+                Console.ReadLine();
+                return GetMarketingFirmStylePreference();            
+            }
+        }
 
 
-        //method to ask and return how they want to "search' through contestants stack or queue. first in first our etc etc... probably static interface 'set'
 
+
+        
        
     }
 }

@@ -8,8 +8,6 @@ namespace Sweepstakes
 {
     public  class Sweepstakes
     {
-        //dictionary data structure 
-
         public string name;
         public int contestants = 0;
         public Dictionary<int, Contestant> contestantNumber;
@@ -28,7 +26,6 @@ namespace Sweepstakes
             contestantNumber.Add(contestants, contestant);
             contestants++;
         }
-
 
         public Contestant PickWinner()
         {

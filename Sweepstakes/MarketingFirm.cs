@@ -9,9 +9,13 @@ namespace Sweepstakes
     public  class MarketingFirm
     {
         //impliment dependancy injection from the sweepstakes manager
+        ISweepstakesManager sweepstakeStorage;
+        
+        public MarketingFirm(ISweepstakesManager style)
+        {
+            this.sweepstakeStorage = style;
 
-
-
+        }
 
 
 
