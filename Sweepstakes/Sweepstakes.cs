@@ -14,10 +14,9 @@ namespace Sweepstakes
         public int winnerKey;
         Random rnd = new Random();
 
-        Sweepstakes(string name)
+        public Sweepstakes(string name)
         {
-            contestantNumber = new Dictionary<int, Contestant>();
-           
+            contestantNumber = new Dictionary<int, Contestant>();          
             this.name = name;
         }
 

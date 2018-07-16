@@ -10,7 +10,7 @@ namespace Sweepstakes
     {
         public string name;
         public string emailAddress;
-        private int registrationNumber = 0; 
+        private int registrationNumber = 1000; 
 
         public int RegistrationNumber
         {
@@ -26,12 +26,10 @@ namespace Sweepstakes
 
         public Contestant()
         {
-            UI.GetFirstName();
-            UI.GetLastName();
             name = UI.GetFullName();
             emailAddress = UI.GetEmailAddress();
-            this.registrationNumber = RegistrationNumber;
-
+            this.RegistrationNumber = RegistrationNumber;
+            RegistrationNumber++;
         }
 
     }

@@ -11,30 +11,24 @@ namespace Sweepstakes
 
         public static string GetFirstName()
         {
-            Console.WriteLine("What is your first name?");
+            Console.WriteLine("What is current contestants first name?");
             return Console.ReadLine();
         }
 
         public static string GetLastName()
         {
-            Console.WriteLine("What is your last name?");
+            Console.WriteLine("What is current contestant's last name?");
             return Console.ReadLine();
         }
         public static string GetFullName()
         {
-            string name = GetFirstName() + GetLastName();
+            string name = GetFirstName() + " " + GetLastName();
             return name;
         }
 
         public static string GetEmailAddress()
         {
-            Console.WriteLine("What is your current email address?");
-            return Console.ReadLine();
-        }
-
-        public static string GetEmailAdress()
-        {
-            Console.WriteLine("What is dyour current email adress?");
+            Console.WriteLine("What is current contestant's  email address?");
             return Console.ReadLine();
         }
 
@@ -63,10 +57,65 @@ namespace Sweepstakes
             }
         }
 
+        public static string GetSweepstakeName()
+        {
+            Console.WriteLine("What would you like to name the current contest?");
+            return Console.ReadLine();
+        }
 
+        public static bool UpdateCurrentSweepStake(Sweepstakes sweepstakes)
+        {
+            Console.WriteLine("Would you like to update the sweepstake and add more contestants, or would you like to pick a winner? Please make sure to add before you draw. Please type 'add' or 'draw'.");
+            string answer = Console.ReadLine().ToLower().Trim();
+            bool update = false;
+          switch (answer)
+            {
+                case "add":
+                    update = true;
+                    break;
 
+                case "draw":           
+                    update = false;
+                    break;
+                default:
+                    Console.WriteLine("Please enter a valid answer.");
+                    Console.ReadLine();
+                    UpdateCurrentSweepStake(sweepstakes);
+                    break;
+            }
 
-        
-       
+            return update;
+
+        }
+
+        public static int NewContestants(Sweepstakes sweepstakes)
+        {
+            Console.WriteLine("How many contestant would you like to add to the current sweetstake? Please respond with a digit as an answer like 3 or 6.");
+            int newContestants = Int32.Parse(Console.ReadLine());
+            return newContestants;
+        }
+
+        public static bool PickWinner(Sweepstakes sweepstakes)
+        {
+            Console.WriteLine("Are you sure that you want to pick a winner? Please enter 'yes' or 'no'.");
+            string answer = Console.ReadLine().ToLower().Trim();
+            bool pickWinner = false;
+            switch (answer)
+            {
+                case "yes":
+                    pickWinner = true;
+                    break;
+
+                case "no":
+                    pickWinner = false;
+                    break;
+                default:
+                    Console.WriteLine("Please enter a valid answer.");
+                    Console.ReadLine();
+                    PickWinner(sweepstakes);
+                    break;
+            }
+            return pickWinner;
+        }
     }
 }
