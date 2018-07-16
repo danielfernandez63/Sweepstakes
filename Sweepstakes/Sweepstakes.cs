@@ -13,6 +13,7 @@ namespace Sweepstakes
         public Dictionary<int, Contestant> contestantNumber;
         public int winnerKey;
         Random rnd = new Random();
+        public int sweepRegistrationNumber = 1000;
 
         public Sweepstakes(string name)
         {
@@ -21,9 +22,12 @@ namespace Sweepstakes
         }
 
     	public void RegisterContestant(Contestant contestant)
-        {          
+        {
+            contestant.RegistrationNumber = sweepRegistrationNumber;
             contestantNumber.Add(contestants, contestant);
             contestants++;
+            sweepRegistrationNumber++;
+
         }
 
         public Contestant PickWinner()

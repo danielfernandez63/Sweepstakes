@@ -47,10 +47,11 @@ namespace Sweepstakes
                 {
                     Contestant newContestant = new Contestant();
                     currentSweepstake.RegisterContestant(newContestant);
+                    Console.WriteLine("");
                     Console.WriteLine("Contestant Added");
+                    Console.ReadLine();
                 }
                 PickWinner(currentSweepstake);    
-
             }
 
         }

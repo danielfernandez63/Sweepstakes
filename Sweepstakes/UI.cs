@@ -11,13 +11,15 @@ namespace Sweepstakes
 
         public static string GetFirstName()
         {
-            Console.WriteLine("What is current contestants first name?");
+            Console.Clear();
+            Console.WriteLine("What is current registering contestants first name?");
             return Console.ReadLine();
         }
 
         public static string GetLastName()
         {
-            Console.WriteLine("What is current contestant's last name?");
+            Console.WriteLine("");
+            Console.WriteLine("What is current registering contestant's last name?");
             return Console.ReadLine();
         }
         public static string GetFullName()
@@ -28,13 +30,15 @@ namespace Sweepstakes
 
         public static string GetEmailAddress()
         {
-            Console.WriteLine("What is current contestant's  email address?");
+            Console.WriteLine("");
+            Console.WriteLine("What is current registering contestant's  email address?");
             return Console.ReadLine();
         }
 
         public static ISweepstakesManager GetMarketingFirmStylePreference()
         {
             Console.WriteLine("Thank you for starting the Sweepstakes Application!Follow instructions as they appear");
+            Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("Would you like the system to be set up in a stack or queue style? Please select 'stack' or 'queue'.");
             string style = Console.ReadLine().ToString().Trim();
@@ -59,13 +63,17 @@ namespace Sweepstakes
 
         public static string GetSweepstakeName()
         {
+            Console.WriteLine("");
+            Console.WriteLine("");
             Console.WriteLine("What would you like to name the current contest?");
             return Console.ReadLine();
         }
 
         public static bool UpdateCurrentSweepStake(Sweepstakes sweepstakes)
         {
-            Console.WriteLine("Would you like to update the sweepstake and add more contestants, or would you like to pick a winner? Please make sure to add before you draw. Please type 'add' or 'draw'.");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Would you like to update the sweepstake named " + sweepstakes.name  + " and add more contestants, or would you like to end the contest? Please make sure to add contestants first or start over. Please type 'add' or 'end'.");
             string answer = Console.ReadLine().ToLower().Trim();
             bool update = false;
           switch (answer)
@@ -74,7 +82,7 @@ namespace Sweepstakes
                     update = true;
                     break;
 
-                case "draw":           
+                case "end":           
                     update = false;
                     break;
                 default:
@@ -90,7 +98,9 @@ namespace Sweepstakes
 
         public static int NewContestants(Sweepstakes sweepstakes)
         {
-            Console.WriteLine("How many contestant would you like to add to the current sweetstake? Please respond with a digit as an answer like 3 or 6.");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("How many contestant would you like to add to the current sweepstake named" + sweepstakes.name + "?  Please respond with a digit as an answer like 3 or 6.");
             int newContestants = Int32.Parse(Console.ReadLine());
             return newContestants;
         }
@@ -108,6 +118,7 @@ namespace Sweepstakes
 
                 case "no":
                     pickWinner = false;
+                    NewContestants(sweepstakes);
                     break;
                 default:
                     Console.WriteLine("Please enter a valid answer.");
